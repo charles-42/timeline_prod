@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Timeline</title>
+
+  {% load static %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'story/css/style.css' %}" />
+  <script type="text/javascript" src="{% static 'story/js/click.js' %}"></script>
+
+</head>
+
+<body>
+  <script src="https://use.typekit.net/bkt6ydm.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<header>
+    <h1 class="text-center">Frise chronologique</h1>
+    <p> Un projet développé par   <a id="created" href="https://www.linkedin.com/in/charles-beniac-62750160/" target="_blank">Charles Béniac</a></p>
+
+    <nav>
+      <ul>
+          <li >
+            <div class="nav_icon_bloc">
+              <img id="global_icon" class="nav_icon" src="/static/story/image/timeline_timeline_2.png" alt="texte_alternatif" />
+            </div>
+            <a class="nav_link" href="{% url 'index'%}">Globale</a>
+          </li>
+          <li  >
+            <div class="nav_icon_bloc">
+              <img class="nav_icon" src="/static/story/image/timeline_philosophy_2.png" alt="texte_alternatif" />
+            </div>
+            <a class="nav_link" href="{% url 'frise' p_name='Philosophique' %}">Philosophie</a>
+          </li>
+          <li>
+            <div class="nav_icon_bloc">
+              <img class="nav_icon" src="/static/story/image/timeline_science_2.png" alt="texte_alternatif" />
+            </div>
+            <a class="nav_link" href="{% url 'frise' p_name='Scientifique' %}">Science</a>
+          </li>
+          <li>
+            <div class="nav_icon_bloc">
+              <img class="nav_icon" src="/static/story/image/timeline_art_2.png" alt="texte_alternatif" />
+            </div>
+          <a class="nav_link" href="{% url 'frise' p_name='Artistique' %}">Art</a>
+          </li>
+          <li>
+            <div class="nav_icon_bloc">
+              <img class="nav_icon" src="/static/story/image/timeline_religion_2.png" alt="texte_alternatif" />
+            </div>
+            <a class="nav_link" href="{% url 'frise' p_name='Religieuse' %}">Religion</a>
+          </li>
+      </ul>
+  	</nav>
+
+</header>
+
+<div class="container-fluid">
+    <div class="row example-split">
+
+
+
+      {% block content %}{% endblock %}
+
+
+    </div>
+</div>
+
+</body>
+</html>
