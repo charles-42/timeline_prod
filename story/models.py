@@ -2,10 +2,11 @@ from django.db import models
 from operator import itemgetter
 import wikipedia
 
-# Create your models here.
+# Events model, each line is an historical event.
 
 class Events(models.Model):
     date = models.IntegerField()
+    # Periods are registered as integer but are printed with a label
     PERIOD = (
     (1, 'Préhistoire'), (2, 'Première antiquité'), (3, 'VIème siècle av-jc'),
     (4, 'Vème siècle av-jc'),(5, 'IVème siècle av-jc'),(6, 'IIIème siècle av-jc'),

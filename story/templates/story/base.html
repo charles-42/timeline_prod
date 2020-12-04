@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- global template for every page structure -->
+
 <html >
 <head>
 
@@ -29,19 +31,19 @@
       <ul>
           <li >
             <div class="nav_icon_bloc">
-              <img id="global_icon" class="nav_icon" src="/static/story/image/timeline_timeline_2.png" alt="texte_alternatif" />
+              <img id="global_icon" class="nav_icon" src="/static/story/image/timeline_timeline_2.png" alt="timeline" />
             </div>
             <a class="nav_link" href="{% url 'index'%}">Globale</a>
           </li>
           <li  >
             <div class="nav_icon_bloc">
-              <img class="nav_icon" src="/static/story/image/timeline_philosophy_2.png" alt="texte_alternatif" />
+              <img class="nav_icon" src="/static/story/image/timeline_philosophy_2.png" alt="philosophie" />
             </div>
             <a class="nav_link" href="{% url 'frise' p_name='Philosophique' %}">Philosophie</a>
           </li>
           <li>
             <div class="nav_icon_bloc">
-              <img class="nav_icon" src="/static/story/image/timeline_science_2.png" alt="texte_alternatif" />
+              <img class="nav_icon" src="/static/story/image/timeline_science_2.png" alt="science" />
             </div>
             <a class="nav_link" href="{% url 'frise' p_name='Scientifique' %}">Science</a>
           </li>
@@ -53,7 +55,7 @@
           </li>
           <li>
             <div class="nav_icon_bloc">
-              <img class="nav_icon" src="/static/story/image/timeline_religion_2.png" alt="texte_alternatif" />
+              <img class="nav_icon" src="/static/story/image/timeline_religion_2.png" alt="religion" />
             </div>
             <a class="nav_link" href="{% url 'frise' p_name='Religieuse' %}">Religion</a>
           </li>

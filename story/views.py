@@ -2,10 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from .models import Events
-# Create your views here.
 
 
 
+# needed to print events distributed in period with périod order
 PERIOD = (
 (1, 'Préhistoire'), (2, 'Première antiquité'), (3, 'VIème siècle av-jc'),
 (4, 'Vème siècle av-jc'),(5, 'IVème siècle av-jc'),(6, 'IIIème siècle av-jc'),
@@ -24,6 +24,7 @@ period_dict = dict(PERIOD)
 def index(request):
     pers = Events.objects.values_list('period', flat=True).distinct().order_by('period')
     events = Events.objects.order_by('date').all()
+    # create a list of the period labels in the right order (here all the period are used)
     long_per = [period_dict[p] for p in pers]
     context = {
         'events': events,
@@ -36,7 +37,6 @@ def index(request):
 
     return HttpResponse(template.render(context, request=request))
 
-comptes = {"Georges Dupont": 10000, "Luc Martin": 150, "Lucas Anderson": 300, "Alexandre Petit": 1800.74}
 
 pages = {
     'Philosophique':("PH",'Ce qui compte en philosophie depuis que les hommes ont commencé à penser'),
@@ -47,8 +47,10 @@ pages = {
 
 def frise(request, p_name):
     page_infos=pages[p_name]
+    # create a list of the distinct period integer used in the page
     pers = Events.objects.filter(category=page_infos[0]).values_list('period', flat=True).distinct().order_by('period')
     events = Events.objects.filter(category=page_infos[0]).order_by('date').all()
+    # create a list of the period labels in the right order (for some page some periods are not used)
     long_per = [period_dict[p] for p in pers]
     context = {
         'events': events,
